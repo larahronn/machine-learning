@@ -85,7 +85,7 @@ class LearningAgent(Agent):
         ###########
         # Calculate the maximum Q-value of all actions for a given state
 
-        current_state = [self.Q.get(state, a) for a in self.valid_actions]
+        current_state = [self.Q[state][a] for a in self.action]
         maxQ = max(current_state)
 
         return maxQ 
@@ -103,8 +103,7 @@ class LearningAgent(Agent):
         
         if state not in self.Q.keys():
             #self.Q[state] = {self.valid_actions:0}
-            self.Q[state] = {None:0, 'forward':0, 'left':0, 'right':0}
-        
+            self.Q[state] = {None:0.0, 'forward':0.0, 'left':0.0, 'right':0.0}      
         return
 
 
@@ -117,8 +116,8 @@ class LearningAgent(Agent):
         self.next_waypoint = self.planner.next_waypoint()
         self.action = self.env.valid_actions
         
-        #Impliment a Basic Driving Agent
-        current_state = [self.Q.get(state, a) for a in self.action]
+        #Implement a Basic Driving Agent
+        current_state = [self.Q[state][a] for a in self.action]
         maxQ = max(current_state)
 
         ########### 
@@ -148,8 +147,9 @@ class LearningAgent(Agent):
         ###########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
+        
         if self.learning == True:
-            self.Q[self.state][action] = (1-self.alpha)*self.Q[self.state][action] + self.alpha*(reward)
+            self.Q[self.state][action] = (1-self.alpha)*self.Q[self.state][action] + self.alpha*(reward + self.get_maxQ(state))
 
         return
 
