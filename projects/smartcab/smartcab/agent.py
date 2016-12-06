@@ -45,10 +45,10 @@ class LearningAgent(Agent):
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         self.no_trials += 1
-        #self.epsilon = 1-(0.0002*self.no_trials)
-        self.epsilon = math.e**(-0.005*self.no_trials)
-        #self.epsilon = math.cos(0.02*self.no_trials)
-        #self.epsilon = 0.7**self.no_trials
+        #self.epsilon = 1-(0.001*self.no_trials)
+        #self.epsilon = math.e**(-0.004*self.no_trials)
+        self.epsilon = math.cos(0.005*self.no_trials)
+        #self.epsilon = 0.99**self.no_trials
         #self.epsilon = 1/(self.no_trials**2)
         #self.epsilon = 0.2**self.no_trials
         
@@ -73,8 +73,8 @@ class LearningAgent(Agent):
         #   If it is not, create a dictionary in the Q-table for the current 'state'
         #   For each action, set the Q-value for the state-action pair to 0
         
-        state = (inputs['light'], waypoint)
-        #removed inputs['oncoming'],inputs['left'],
+        state = (inputs['light'], inputs['oncoming'], waypoint)
+        #removed inputs['left']
         return state
 
 
@@ -151,7 +151,7 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         
         if self.learning == True:
-            self.Q[self.state][action] = (1-self.alpha)*self.Q[self.state][action] + self.alpha*(reward + self.get_maxQ(state))
+            self.Q[self.state][action] = (1-self.alpha)*self.Q[self.state][action] + self.alpha*(reward)
 
         return
 
@@ -210,7 +210,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=50, tolerance=0.2)
+    sim.run(n_test=50, tolerance=0.3)
 
 
 if __name__ == '__main__':
