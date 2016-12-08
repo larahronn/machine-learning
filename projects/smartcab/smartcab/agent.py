@@ -45,13 +45,15 @@ class LearningAgent(Agent):
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         self.no_trials += 1
+        self.epsilon = math.cos(0.005*self.no_trials)
         #self.epsilon = 1-(0.001*self.no_trials)
         #self.epsilon = math.e**(-0.004*self.no_trials)
-        self.epsilon = math.cos(0.005*self.no_trials)
         #self.epsilon = 0.99**self.no_trials
         #self.epsilon = 1/(self.no_trials**2)
         #self.epsilon = 0.2**self.no_trials
-        
+        if testing == True:
+            self.epsilon = 0
+            self.alpha = 0
         
         return None
 
@@ -129,15 +131,19 @@ class LearningAgent(Agent):
         # When learning, choose a random action with 'epsilon' probability
         #   Otherwise, choose an action with the highest Q-value for the current state
         # https://studywolf.wordpress.com/2012/11/25/reinforcement-learning-q-learning-and-exploration/
-        if random.random() < self.epsilon:
-            best = [i for i in range(len(self.action)) if current_state[i] == maxQ]
-            i = random.choice(best)
+        if self.learning == False:
+            action = random.choice(self.action)
         else:
-            i = current_state.index(maxQ)
-        action = self.action[i]
+    
+            if random.random() < self.epsilon:
+                best = [i for i in range(len(self.action)) if current_state[i] == maxQ]
+                i = random.choice(best)
+            else:
+                i = current_state.index(maxQ)
+            action = self.action[i]
 
-        return action
-
+            return action
+      
 
     def learn(self, state, action, reward):
         """ The learn function is called after the agent completes an action and
