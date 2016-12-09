@@ -8,7 +8,7 @@ class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
 
-    def __init__(self, env, learning=True, epsilon=0.7, alpha=0.7):
+    def __init__(self, env, learning=True, epsilon=1, alpha=1):
         super(LearningAgent, self).__init__(env)     # Set the agent in the environment 
         self.planner = RoutePlanner(self.env, self)  # Create a route planner
         self.valid_actions = self.env.valid_actions  # The set of valid actions
@@ -45,9 +45,9 @@ class LearningAgent(Agent):
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         self.no_trials += 1
-        self.epsilon = math.cos(0.005*self.no_trials)
+        #self.epsilon = math.cos(0.003*self.no_trials)
         #self.epsilon = 1-(0.001*self.no_trials)
-        #self.epsilon = math.e**(-0.004*self.no_trials)
+        self.epsilon = math.e**(-0.001*self.no_trials)
         #self.epsilon = 0.99**self.no_trials
         #self.epsilon = 1/(self.no_trials**2)
         #self.epsilon = 0.2**self.no_trials
@@ -134,13 +134,13 @@ class LearningAgent(Agent):
         if self.learning == False:
             action = random.choice(self.action)
         else:
-    
             if random.random() < self.epsilon:
+                action = random.choice(self.action)
+            else:
                 best = [i for i in range(len(self.action)) if current_state[i] == maxQ]
                 i = random.choice(best)
-            else:
-                i = current_state.index(maxQ)
-            action = self.action[i]
+
+                action = self.action[i]
 
             return action
       
@@ -194,7 +194,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True, epsilon=1, alpha=0.5)
+    agent = env.create_agent(LearningAgent, learning=True, epsilon=1, alpha=0.4)
     
     ##############
     # Follow the driving agent
