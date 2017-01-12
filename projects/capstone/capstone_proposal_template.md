@@ -4,7 +4,6 @@ Lara Hronn Petursdottir
 December 12th, 2016
 
 ## Proposal
-_(approx. 2-3 pages)_
 All the people of earth have this in common: One day in their lives is one earth’s rotation. No one has more or less time in a day - just more or less sunlight.
 
 ### Domain Background
@@ -24,6 +23,14 @@ http://www.sciencedirect.com/science/article/pii/S0191886901000800
 _(approx. 1 paragraph)_
 
 Can we be divided into groups / types / personalities based on how we spend our days? Could these groups be used as labels for further research to see how your lifestyle affects different aspects of our life such as health, family, happiness or even consumer behaviour.
+Other interesting questions to answer include:
+
+How do daily activities differ by:
+labor force status
+income
+household composition
+geographical region
+disability status
 
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
