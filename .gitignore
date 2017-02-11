@@ -63,3 +63,18 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+<<<<<<< HEAD
+
+#lara ignore files
+data/
+*.dat
+*.xlsx
+*.csv
+||||||| parent of 62a468c... gitignore
+=======
+
+# lara data files
+*.dat
+*.xlsx
+*.csv
+>>>>>>> 62a468c... gitignore
