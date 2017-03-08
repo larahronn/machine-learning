@@ -63,3 +63,10 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+<<<<<<< HEAD
+
+#lara ignore files
+data/
+*.dat
+*.xlsx
+*.csv
