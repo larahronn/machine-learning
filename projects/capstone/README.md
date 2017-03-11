@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # machine-learning
 Content for Udacity's Machine Learning curriculum, which includes projects and their descriptions.
 
@@ -18,4 +17,3 @@ You can find the [capstone proposal rubric here](https://review.udacity.com/#!/r
 You will find an `open_projects` folder in these files. This will be where pre-curated capstone projects are available, should you choose to work on a project already partially designed for you. 
 
 Please email [machine-support@udacity.com](mailto:machine-support@udacity.com) if you have any questions.
->>>>>>> 731740c... first capstone
