@@ -31,4 +31,5 @@ This will open the Jupyter Notebook software and project file in your browser.
 
 
 ## Data
+All data in `atus.csv` is represented with a numerical value and can be translated using the ATUS Data Dictionary. In the ATUS Activity file each respondent is represented with a 14 number ID (TUCASEID) and answers with activity he or she did (TUACTIVITY_N), when it started and when it finished (HH:MM:SS). The ATUS Activity Summary file uses the respondent ID, his age and shows how many minutes (MMM) the respondent spends doing a certain activity.
 
