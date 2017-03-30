@@ -1,6 +1,7 @@
-# Machine Learning Engineer Nanodegree
 # Model Evaluation and Validation
-## Project: Predicting Boston Housing Prices
+## Predicting Boston Housing Prices
+
+A model to predict the value of a given house in the Boston real estate market using various statistical analysis tools. Best price identified that a client can sell their house for, utilizing machine learning.
 
 ### Install
 
@@ -11,13 +12,13 @@ This project requires **Python 2.7** and the following Python libraries installe
 - [matplotlib](http://matplotlib.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
 
-You will also need to have software installed to run and execute a [Jupyter Notebook](http://ipython.org/notebook.html)
+This project is executed in a [Jupyter Notebook](http://ipython.org/notebook.html)
 
-If you do not have Python installed yet, it is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included. Make sure that you select the Python 2.7 installer and not the Python 3.x installer.
+It is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included. Make sure that you select the Python 2.7 installer and not the Python 3.x installer. 
 
 ### Code
 
-Template code is provided in the `boston_housing.ipynb` notebook file. You will also be required to use the included `visuals.py` Python file and the `housing.csv` dataset file to complete your work. While some code has already been implemented to get you started, you will need to implement additional functionality when requested to successfully complete the project. Note that the code included in `visuals.py` is meant to be used out-of-the-box and not intended for students to manipulate. If you are interested in how the visualizations are created in the notebook, please feel free to explore this Python file.
+Template code is provided in the `boston_housing.ipynb` notebook file. The `visuals.py` Python file and the `housing.csv` dataset file will be requiered to complete the project.
 
 ### Run
 
@@ -31,8 +32,7 @@ or
 jupyter notebook boston_housing.ipynb
 ```
 
-This will open the Jupyter Notebook software and project file in your browser.
-
+This will open the Jupyter Notebook software and project file the browser. The contents can be executed by using Shift-Enter.
 ### Data
 
 The modified Boston housing dataset consists of 490 data points, with each datapoint having 3 features. This dataset is a modified version of the Boston Housing dataset found on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Housing).
